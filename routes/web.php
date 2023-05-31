@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/todoapp', function () {
-    return view('todoapp');
+    return view('todoapp.index');
 });
 Route::get('/blog', function () {
-    return view('blog');
+    return view('blog.index');
 });
