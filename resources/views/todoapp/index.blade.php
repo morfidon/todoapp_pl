@@ -1,3 +1,7 @@
+@extends("layouts.app")
+@section("title", "To-Do List")
+
+@section("content")
 <h1>To-Do List</h1>
 
 <form>
@@ -6,5 +10,4 @@
     <input type="submit" value="Add">
   </div>
 </form>
-
-<a href="{{ route("home.index") }}">Home</a>
+@endsection
