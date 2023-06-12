@@ -8,6 +8,7 @@ class TodoAppController extends Controller
 {
     public function index()
     {
+        
         return view("todoapp.index");
     }  
 }
