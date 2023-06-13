@@ -2,10 +2,10 @@
 @section("title", "To-Do List")
 
 @section("content")
-<h1>To-Do List</h1>
-<form>
+<form method="POST">
+  @csrf
   <div>
-    <input type="text" placeholder="Enter a to-do item" required>
+    <input type="text" name="content" placeholder="Enter a to-do item" required>
     <input type="submit" value="Add">
   </div>
 </form>
