@@ -2,6 +2,18 @@
 @section("title", "To-Do List")
 
 @section("content")
+
+@isset($x)
+  {{ $x }}
+@endisset
+
+<ul>
+  @foreach ($tasks as $task)
+      <li>{{ $task->content }}</li>
+  @endforeach
+</ul>
+
+
 <form method="POST">
   @csrf
   <div>
