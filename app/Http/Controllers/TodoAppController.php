@@ -20,7 +20,6 @@ class TodoAppController extends Controller
         $task->save();
 
 
-
-        return view("todoapp.index");
+        return redirect()->route("todoapp.index");
     }     
 }
