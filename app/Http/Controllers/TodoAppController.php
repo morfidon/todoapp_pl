@@ -21,5 +21,13 @@ class TodoAppController extends Controller
 
 
         return redirect()->route("todoapp.index");
-    }     
+    }   
+    
+    public function destroy($taskId)
+    {
+        Task::destroy($taskId);
+
+
+        return redirect()->route("todoapp.index");
+    }      
 }
