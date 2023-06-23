@@ -24,6 +24,9 @@ Route::post('/todoapp', [TodoAppController::class, "store"])->name("todoapp.stor
 
 Route::delete('/todoapp/{task}', [TodoAppController::class, "destroy"])->name("todoapp.destroy");
 
+Route::put('/todoapp/{task}', [TodoAppController::class, "update"])->name("todoapp.update");
+
+
 
 
 // ["todoapp", "/todolist"]
