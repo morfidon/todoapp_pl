@@ -11,7 +11,7 @@ class TodoAppController extends Controller
     public function index()
     {
         
-        return view("todoapp.index")->with("tasks", Task::all());
+        return view("todoapp.index")->with("tasks", Task::where("completed", 0)->get());
     }  
     public function store(Request $request, Task $task)
     {
@@ -38,5 +38,13 @@ class TodoAppController extends Controller
 
 
         return redirect()->route("todoapp.index");
-    }           
+    }  
+    public function complete(Task $task)
+    {
+        $task->completed = 1;
+        $task->save();
+
+
+        return redirect()->route("todoapp.index");
+    }              
 }
