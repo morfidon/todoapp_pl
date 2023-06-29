@@ -15,11 +15,8 @@ class TodoAppController extends Controller
     }  
     public function store(Request $request, Task $task)
     {
-        $task->content = $request->content;
-        
-        $task->save();
-
-
+        Task::create($request->all());
+    
         return redirect()->route("todoapp.index");
     }   
     
@@ -33,18 +30,14 @@ class TodoAppController extends Controller
     
     public function update(Task $task, Request $request)
     {
-        $task->content = $request->content;
-        $task->save();
-
+        $task->update($request->all());
 
         return redirect()->route("todoapp.index");
     }  
-    public function complete(Task $task)
+    public function complete(Task $task, Request $request)
     {
-        $task->completed = 1;
-        $task->save();
-
-
+        $task->update($request->all());
+        
         return redirect()->route("todoapp.index");
     }              
 }
