@@ -9,11 +9,14 @@ use Illuminate\Support\Facades\Log;
 class TodoAppController extends Controller
 {
     protected $validationRules = [
-        "content" => "required",
-        "email" => "required|email"
+        "content" => "required|max:4",
+        "email" => "email"
+    ];
+    protected $customErrorMessages = [
+        "content.required" => "Wpisz tu coś, pusto jest ;)",
+        "content.max" => "Max 4 znaki, nie więcej ziom"
 
     ];
-
     public function index()
     {
         
@@ -23,8 +26,9 @@ class TodoAppController extends Controller
     {
 
 
-        $validatedData = $request->validate($this->validationRules);
+        $validatedData = $request->validate($this->validationRules, $this->customErrorMessages);
 
+    
         Task::create($validatedData);
     
         return redirect()->route("todoapp.index");
